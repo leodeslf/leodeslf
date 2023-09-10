@@ -10,7 +10,6 @@
     "preview": "vite preview --port 7019"
   },
   "dependencies": {
-    "@leodeslf/inverse-kinematics": "^2.0.0",
     "@leodeslf/simplex-noise": "^1.0.0",
     "@leodeslf/skeleton": "^3.0.0",
     "@leodeslf/vec.js": "^3.0.0",

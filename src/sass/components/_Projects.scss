@@ -1,0 +1,130 @@
+@import "Casi", "Ephy", "Fontima", "Skeleton", "Tfp", "Tw", "Tw2", "Vec";
+
+$blueprint-blue: #3080f0;
+
+.project__list {
+  --blueprint-color: var(--color);
+  --blueprint-dash-color: #{transparentize($black, 0.75)};
+  --blueprint-margin: 1rem;
+  --blueprint-trace-color: #{transparentize($black, 0.5)};
+  --grid-bg--dark: var(--bg--off);
+  --grid-bg: var(--bg);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: auto auto;
+  /* .darks & {
+    --blueprint-bg: #{$blueprint-blue};
+    --blueprint-color: #{$white};
+    --blueprint-dash-color: #{transparentize($white, 0.5)};
+    --blueprint-trace-color: #{$white};
+    --grid-bg--dark: #{lighten($blueprint-blue, 40%)};
+    --grid-bg: #{$white};
+  } */
+}
+
+.project {
+  display: grid;
+  grid-column: 1 / 3;
+  grid-template-columns: subgrid;
+  margin-block: auto;
+  margin-inline: auto;
+  max-width: 640px;
+  padding-block: 1rem;
+  padding-inline-start: 1rem;
+  position: relative;
+  &:not(:last-child) {
+    margin-block-end: 1.5rem;
+  }
+  &::before,
+  &::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
+  &::before {
+    border-radius: #{$border-radius} 100% 100% #{$border-radius} / #{$border-radius} 12px 12px #{$border-radius};
+    box-shadow:
+      0 0 1px $shadow-color,
+      0 0 3px $shadow-color;
+    left: 0;
+    position: absolute;
+    right: 12px;
+  }
+  &::after {
+    background-image: linear-gradient(to right, var(--bg), var(--bg--off));
+    border-radius: $border-radius;
+    width: 100%;
+  }
+}
+
+.project__description {
+  color: var(--color--off);
+  font-size: $font-size--small;
+  line-height: 1.25;
+}
+
+.project__header {
+  margin-block-end: 1em;
+  text-wrap: balance;
+}
+
+.project__preview {
+  display: grid;
+  place-content: center;
+  canvas {
+    user-select: none;
+  }
+}
+
+.blueprint {
+  color: var(--blueprint-color);
+}
+
+.blueprint,
+.blueprint * {
+  position: relative;
+  z-index: 0;
+  &::before,
+  &::after {
+    content: "";
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+  &::before {
+    border-bottom: 1px dashed var(--blueprint-dash-color);
+    border-top: 1px dashed var(--blueprint-dash-color);
+    left: calc(-1 * var(--blueprint-margin));
+    padding: 0 var(--blueprint-margin);
+    top: -1px;
+  }
+  &::after {
+    border-left: 1px dashed var(--blueprint-dash-color);
+    border-right: 1px dashed var(--blueprint-dash-color);
+    left: -1px;
+    padding: var(--blueprint-margin) 0;
+    top: calc(-1 * var(--blueprint-margin));
+  }
+}
+
+.blueprint-outline,
+.draw {
+  border-radius: $border-radius;
+  outline: 1px solid var(--blueprint-trace-color);
+}
+
+.draw {
+  background-image: conic-gradient(
+    var(--grid-bg--dark) 0deg,
+    var(--grid-bg--dark) 90deg,
+    var(--grid-bg) 90deg,
+    var(--grid-bg) 180deg,
+    var(--grid-bg--dark) 180deg,
+    var(--grid-bg--dark) 270deg,
+    var(--grid-bg) 270deg
+  );
+  background-size: 18px 18px;
+}

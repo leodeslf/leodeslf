@@ -1,0 +1,7 @@
+#tfp {
+  @extend .draw;
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+}

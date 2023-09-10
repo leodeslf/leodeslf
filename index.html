@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Meta Tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description"
+    content="Portfolio, web personal y sandbox, donde dejo registro de mi aprendizaje como autodidacta en el mundo del Desarrollo Frontend. Leonardo de S.L.F" />
+  <meta name="author" content="Leonardo de S.L.F" />
+  <meta name="copyright" content="Leonardo de S.L.F" />
+  <meta name="keywords" content="leodeslf, Leonardo de S.L.F, Leonardo de Souza Leal Figueira" />
+  <meta name="msapplication-TileColor" content="#000000" />
+  <!-- OGP Meta Tags -->
+  <meta property="og:title" content="Leo de S.L.F" />
+  <meta property="og:url" content="https://leodeslf.com" />
+  <meta property="og:description"
+    content="Portfolio, web personal y sandbox, donde dejo registro de mi aprendizaje como autodidacta en el mundo del Desarrollo Frontend. Leonardo de S.L.F" />
+  <!-- Core -->
+  <title>Leo de S.L.F</title>
+  <link rel="canonical" href="https://leodeslf.com" />
+  <!-- Internal Links -->
+  <!-- <link rel="manifest" href="/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-chrome-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#000000" /> -->
+  <!-- Network (preconnect, prefetch) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <!-- Extras -->
+  <meta name="google-site-verification" content="VHkXfJGJmtuPbiHotYrHQa4HdPD-yfHmmRum2MRYTJI" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9464CWZ62D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-9464CWZ62D');
+  </script>
+</head>
+
+<body>
+  <script>
+    // Use previously saved state if any, otherwise use the system preference.
+    const savedTheme = localStorage.getItem('theme');
+
+    if (
+      savedTheme !== null ?
+        savedTheme === 'dark' :
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

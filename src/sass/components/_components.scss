@@ -1,0 +1,7 @@
+@import "Projects", "Hero";
+
+@media screen and (max-width: 459px) {
+  .intro p > br {
+    display: none;
+  }
+}

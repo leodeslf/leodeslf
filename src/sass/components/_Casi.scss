@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "DSEG7 Classic Italic";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/src/assets/DSEG7Classic-Italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Print Char 21";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/src/assets/PrintChar21.woff2") format("woff2");
+}
+
+#casi {
+  @extend .blueprint;
+  @extend .blueprint-outline;
+  display: grid;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1em;
+}
+
+.casi__display {
+  @extend .blueprint-outline;
+  display: grid;
+  gap: 1px;
+  justify-items: right;
+  padding: 0.25rem;
+  text-align: right;
+}
+
+.casi__input-record {
+  font-family: "Print Char 21", monospace;
+  font-size: 15px;
+  min-width: 7ch;
+}
+
+.casi__answer {
+  font-family: "DSEG7 Classic Italic", monospace;
+  font-size: 30px;
+}
+
+.casi__buttons {
+  display: flex;
+  gap: 0.5em;
+  user-select: none;
+  &::before,
+  &::after {
+    border: none !important;
+  }
+  span {
+    @extend .blueprint-outline;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 500;
+    justify-content: center;
+    width: 4ch;
+  }
+}

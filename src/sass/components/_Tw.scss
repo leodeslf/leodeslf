@@ -1,0 +1,39 @@
+#tw {
+  @extend .blueprint;
+  @extend .blueprint-outline;
+  display: grid;
+  font-feature-settings: "tnum";
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
+  line-height: 1;
+  padding: 1rem;
+}
+
+.tw__country {
+  grid-column: 1 / 3;
+  display: flex;
+  justify-content: space-between;
+  gap: 1ch;
+  img {
+    aspect-ratio: 1;
+  }
+}
+
+.tw__current-temp {
+  font-size: 3rem;
+  grid-row: 2 / 4;
+}
+
+.tw__max-temp,
+.tw__min-temp {
+  text-align: right;
+}
+
+.tw__max-temp {
+  align-self: self-end;
+}
+
+.tw__min-temp {
+  align-self: self-start;
+}

@@ -1,0 +1,53 @@
+#vec {
+  // background-color: mix(burlywood, peru, 75%);
+  // outline-offset: -1px;
+  // outline: 1px solid #fff4;
+  // justify-content: center;
+  // &::after {
+  //   background-color: #fff4;
+  //   position: absolute;
+  //   content: "";
+  //   height: 1rem;
+  //   top: 0;
+  //   width: 2rem;
+  // }
+  // .dark & {
+  //   background-color: mix(burlywood, peru, 25%);
+  // }
+  @extend .blueprint;
+  @extend .blueprint-outline;
+  color: var(--line-color);
+  line-height: 1.25;
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+  pre {
+    font-size: 10px;
+    letter-spacing: -0.2px;
+    text-align: center;
+  }
+}
+
+.vec__box-symbols,
+.vec__npm-sticker {
+  bottom: 1rem;
+  position: absolute !important;
+}
+
+.vec__box-symbols {
+  // font-weight: 600;
+  font-size: 18px;
+  left: 1rem;
+  line-height: 1;
+}
+
+.vec__npm-sticker {
+  // background-color: #f00a;
+  // font-weight: 600;
+  @extend .blueprint-outline;
+  border-radius: 0;
+  font-family: monospace;
+  font-size: 15px;
+  padding: 0 4px 1px;
+  right: 1rem;
+}

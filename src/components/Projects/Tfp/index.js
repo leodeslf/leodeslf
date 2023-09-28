@@ -87,7 +87,7 @@ function initPreview(noiseCanvas, skinCanvas) {
   noiseContext = noiseCanvas.getContext('2d');
   let skinContext = skinCanvas.getContext('2d', { willReadFrequently: true });
   const skinImageData = new Image(256, 1);
-  skinImageData.src = './src/assets/tfp-skin.png';
+  skinImageData.src = '/assets/tfp-skin.png';
   skinImageData.onload = () => {
     skinContext.clearRect(0, 0, 256, 1);
     skinContext.drawImage(skinImageData, 0, 0);

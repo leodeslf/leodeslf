@@ -25,8 +25,8 @@ function setTarget(event) {
       break;
     case 'touchmove':
       target.xy = [
-        event.changedTouches[0].pageX - canvasOffset.x,
-        event.changedTouches[0].pageY - canvasOffset.y
+        event.changedTouches[0].clientX - canvasOffset.x,
+        event.changedTouches[0].clientY - canvasOffset.y
       ];
       break;
   }
@@ -128,20 +128,19 @@ function initPreview(skeletonCanvas) {
       event.offsetX,
       event.offsetY
     ];
-    skeletonCanvas.addEventListener('mousemove', setTarget);
+    window.addEventListener('mousemove', setTarget);
     window.addEventListener('mouseup', () => {
-      skeletonCanvas.removeEventListener('mousemove', setTarget);
+      window.removeEventListener('mousemove', setTarget);
     });
   });
   skeletonCanvas.addEventListener('touchstart', event => {
     event.preventDefault();
-    canvasOffset.xy = [
-      skeletonCanvas.offsetLeft,
-      skeletonCanvas.offsetTop
-    ];
+    const { x, y } = skeletonCanvas.getBoundingClientRect();
+    canvasOffset.x = x;
+    canvasOffset.y = y;
     target.xy = [
-      event.touches[0].pageX - canvasOffset.x,
-      event.touches[0].pageY - canvasOffset.y
+      event.touches[0].clientX - canvasOffset.x,
+      event.touches[0].clientY - canvasOffset.y
     ];
     skeletonCanvas.addEventListener('touchmove', setTarget, { passive: false });
     window.addEventListener('touchend', () => {

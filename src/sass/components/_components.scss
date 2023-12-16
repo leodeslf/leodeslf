@@ -1,7 +1,14 @@
-@import "Projects", "Hero";
+@import "Projects";
 
-@media screen and (max-width: 459px) {
-  .intro p > br {
+.intro {
+  grid-template-rows: 38.2lvh repeat(2, auto);
+  grid-column: 2 / 3;
+  container-name: intro;
+  container-type: inline-size;
+}
+
+@container intro (max-width: 440px) {
+  .intro__about-me br {
     display: none;
   }
 }

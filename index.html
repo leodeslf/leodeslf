@@ -2,32 +2,43 @@
 <html lang="en">
 
 <head>
-  <!-- Meta Tags -->
+  <!-- Basic Meta Tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="Portfolio, web personal y sandbox, donde dejo registro de mi aprendizaje como autodidacta en el mundo del Desarrollo Frontend. Leonardo de S.L.F" />
-  <meta name="author" content="Leonardo de S.L.F" />
-  <meta name="copyright" content="Leonardo de S.L.F" />
-  <meta name="keywords" content="leodeslf, Leonardo de S.L.F, Leonardo de Souza Leal Figueira" />
+    content="Portfolio, web personal y sandbox, donde dejo registro de mi aprendizaje como autodidacta en el mundo del Desarrollo Frontend." />
+  <meta name="author" content="Leonardo de S. Leal F." />
+  <meta name="copyright" content="Leonardo de S. Leal F." />
+  <meta name="keywords"
+    content="leodeslf, Leo de S.L.F, Leonardo de S. Leal F., Leonardo de Souza Leal Figueira, Frontend Development" />
   <!-- OGP Meta Tags -->
   <meta property="og:title" content="Leonardo de S. Leal F." />
   <meta property="og:url" content="https://leodeslf.com" />
   <meta property="og:description"
-    content="Portfolio, web personal y sandbox, donde dejo registro de mi aprendizaje como autodidacta en el mundo del Desarrollo Frontend. Leonardo de S.L.F" />
+    content="Portfolio, web personal y sandbox, donde dejo registro de mi aprendizaje como autodidacta en el mundo del Desarrollo Frontend." />
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://leodeslf.com/",
+        "url": "https://leodeslf.com/",
+        "name": "Leonardo de S. Leal F. ",
+        "description": "Portfolio, web personal y sandbox, donde dejo registro de mi aprendizaje como autodidacta en el mundo del Desarrollo Frontend."
+      }
+    </script>
   <!-- Core -->
   <title>Leonardo de S. Leal F.</title>
   <link rel="canonical" href="https://leodeslf.com" />
-  <!-- Internal Links -->
-  <link rel="manifest" href="/manifest.json" />
+  <!-- TODO Internal Links -->
+  <!-- <link rel="manifest" href="/manifest.json" />
   <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-  <!-- Network (preconnect, prefetch) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" /> -->
+  <!-- External Requests (preconnect, prefetch) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,600;1,400&display=swap"
     rel="stylesheet">
-  <!-- Google tag (gtag.js) -->
+  <!-- Google (Analytics) tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3PWK24SDW4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -38,7 +49,7 @@
 </head>
 
 <body>
-  <script>
+  <!-- <script>
     // Use previously saved state if any, otherwise use the system preference.
     const savedTheme = localStorage.getItem('theme');
 
@@ -49,9 +60,13 @@
     ) {
       document.documentElement.classList.add('dark');
     }
-  </script>
+  </script> -->
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+    data-cf-beacon='{"token": "8062e0aeaa4948c3bb93e844a7a225fe"}'></script>
+  <!-- End Cloudflare Web Analytics -->
 </body>
 
 </html>

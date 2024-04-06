@@ -22,7 +22,7 @@ export default function Tw2() {
       </span>
     </div>
   ) : (
-    <p>
+    <p className="project__weather-placeholder">
       {weather.code === undefined ?
         'Cargando...' :
         'Error al consultar OpenWeather.'}

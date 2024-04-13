@@ -1,20 +1,20 @@
 [
   {
     "about": "Vectores en JavaScript",
-    "argument": "Familiarizarme con JavaScript (ES6) y paquetes de NPM",
+    "argument": "familiarizarme con JavaScript (ES6) y el desarrollo de paquetes npm",
     "date": "07/12/2018",
     "id": "Vec",
     "links": [
       {
-        "name": "npm",
+        "name": "paquete",
         "url": "https://www.npmjs.com/package/@leodeslf/vec.js"
       },
       {
         "name": "repo",
-        "url": "https://github.com/leodeslf/vector"
+        "url": "https://github.com/leodeslf/vec.js"
       }
     ],
-    "title": "Vec.js",
+    "title": "vec.js",
     "tools": {
       "new": [
         "JavaScript"
@@ -23,7 +23,7 @@
   },
   {
     "about": "Texturas Fractales y Procedurales",
-    "argument": "Practicar HTML(5), CSS(3) y avanzar con JavaScript en el DOM",
+    "argument": "poner en practica HTML(5) y CSS(3); avanzar con JavaScript y el DOM",
     "date": "26/05/2019",
     "id": "Tfp",
     "links": [
@@ -34,6 +34,10 @@
       {
         "name": "repo",
         "url": "https://github.com/leodeslf/tfp"
+      },
+      {
+        "name": "remake (con React)",
+        "url": "https://tfp-v2.netlify.app/"
       }
     ],
     "resources": [
@@ -90,8 +94,8 @@
     }
   },
   {
-    "about": "App del tiempo",
-    "argument": "Aprender React y SASS/SCSS, extras: consumo de APIs y programación asíncrona, Three.js",
+    "about": "App del Tiempo",
+    "argument": "introducirme a un desarrollo más realista de la mano de herramientas modernas como React & SASS/SCSS y seguir avanzando con JavaScript",
     "date": "10/06/2019",
     "id": "Tw",
     "links": [
@@ -102,6 +106,10 @@
       {
         "name": "repo",
         "url": "https://github.com/leodeslf/this.weather"
+      },
+      {
+        "name": "remake (con Angular)",
+        "url": "https://this-weather-v2.web.app/"
       }
     ],
     "resources": [
@@ -148,41 +156,13 @@
     }
   },
   {
-    "about": "Casio fx-82MS",
-    "argument": "Tener un primer contacto con Vue para comparar alternativas",
-    "date": "02/12/2020",
-    "id": "Casi",
-    "links": [
-      {
-        "name": "web",
-        "url": "https://casi-fx-leodeslf.netlify.app/"
-      },
-      {
-        "name": "repo",
-        "url": "https://github.com/leodeslf/casi"
-      }
-    ],
-    "resources": null,
-    "title": "CASI",
-    "tools": {
-      "old": [
-        "HTML",
-        "JavaScript",
-        "SCSS"
-      ],
-      "new": [
-        "Vue"
-      ]
-    }
-  },
-  {
-    "about": "Cinemática inversa",
-    "argument": "Extender capacidades de JavaScript con TypeScript",
+    "about": "Cinemática Inversa",
+    "argument": "extender capacidades de JavaScript implementando TypeScript",
     "date": "10/12/2020",
     "id": "skeleton",
     "links": [
       {
-        "name": "npm",
+        "name": "paquete",
         "url": "https://www.npmjs.com/package/@leodeslf/skeleton"
       },
       {
@@ -205,35 +185,8 @@
     }
   },
   {
-    "about": "App del tiempo",
-    "argument": "Dar oportunidad a más alternativas experimentando con Angular",
-    "date": "20/01/2021",
-    "id": "Tw2",
-    "links": [
-      {
-        "name": "web",
-        "url": "https://this-weather-v2.web.app/"
-      },
-      {
-        "name": "repo",
-        "url": "https://github.com/leodeslf/this-weather-v2"
-      }
-    ],
-    "title": "this.weather-v2",
-    "tools": {
-      "old": [
-        "HTML",
-        "TypeScript",
-        "SCSS"
-      ],
-      "new": [
-        "Angular"
-      ]
-    }
-  },
-  {
-    "about": "App espirógrafo",
-    "argument": "Buscar una alternativa, no solo diferente sino mejor al resto, con Svelte",
+    "about": "Espirógrafo",
+    "argument": "encontrar en Svelte(Kit) una herramienta no solo diferente sino que innovadora en comparación con las más populares (React, Angular, Vue)",
     "date": "19/09/2021",
     "id": "Ephy",
     "links": [
@@ -287,7 +240,7 @@
   },
   {
     "about": "Optimización para Google Fonts",
-    "argument": "Implementar Redux y Cypress, aprender sobre tipografías y Unicode en la web",
+    "argument": "fortalecer mi stack con Redux y Cypress; investigar sobre el funcionamiento de tipografías y el estándar Unicode en la web",
     "date": "27/04/2021",
     "id": "Fontima",
     "links": [
@@ -297,7 +250,7 @@
       },
       {
         "name": "repo",
-        "url": "https://github.com/leodeslf/deglyph"
+        "url": "https://github.com/leodeslf/fontima"
       }
     ],
     "resources": [
@@ -321,7 +274,8 @@
         "SCSS"
       ],
       "new": [
-        "Redux"
+        "Redux",
+        "Cypress"
       ]
     }
   }

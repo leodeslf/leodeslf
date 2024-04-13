@@ -1,8 +1,8 @@
 import store from "../stores/store";
 import { weatherSet } from "../stores/weatherSlice";
 
-const ipUrl = 'https://api.ipdata.co/es?api-key=b3a6e1ab3f14ca073da324e9814030521bc2c89ce233e6bac8a9bdb3';
-const weatherUrl = ({ city, country_code }) => `https://api.openweathermap.org/data/2.5/weather?appid=b280c897878592322aafe56701248929&lang=sp&units=metric&q=${city},${country_code}`;
+const ipUrl = 'https://api.ipdata.co/es?api-key=e74737cb776b0fb96e8fd1241bc119c7438e15e55e224cea3e5b333a';
+const weatherUrl = ({ city, country_code }) => `https://api.openweathermap.org/data/2.5/weather?appid=cdd659df7dc048884575b9451ddf1330&lang=sp&units=metric&q=${city},${country_code}`;
 const countryFlagUrl = ({ country_code }) => `https://flagsapi.com/${country_code}/flat/16.png`;
 let timeout = 0;
 

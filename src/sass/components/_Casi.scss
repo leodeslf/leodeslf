@@ -16,7 +16,6 @@
 
 #casi {
   @extend .blueprint;
-  @extend .blueprint-outline;
   display: grid;
   flex-direction: column;
   gap: 0.5rem;
@@ -24,7 +23,6 @@
 }
 
 .casi__display {
-  @extend .blueprint-outline;
   display: grid;
   gap: 1px;
   justify-items: right;
@@ -35,7 +33,7 @@
 .casi__input-record {
   font-family: "Print Char 21", monospace;
   font-size: 15px;
-  min-width: 7ch;
+  min-width: 10ch;
 }
 
 .casi__answer {
@@ -52,13 +50,12 @@
     border: none !important;
   }
   span {
-    @extend .blueprint-outline;
     align-items: center;
     cursor: pointer;
     display: flex;
     font-size: 1.5rem;
     font-weight: 500;
     justify-content: center;
-    width: 4ch;
+    width: 50%;
   }
 }

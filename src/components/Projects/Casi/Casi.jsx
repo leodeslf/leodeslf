@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const charLimit = 9;
+const charLimit = 10;
 
 export default function Casi() {
   const [answer, setAnswer] = useState(0);

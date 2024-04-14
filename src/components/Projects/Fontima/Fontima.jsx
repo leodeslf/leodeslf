@@ -8,11 +8,6 @@ export default function Deglyph() {
           </span>
         ))}
       </div>
-      <div className="fontima__feedback">
-        <p title="Asking for only the uppercase&#13; letter &ldquo;A&rdquo; saves that weight.">
-          <strong>142.7 KB (91%) saved</strong><br />for these fonts above!
-        </p>
-      </div>
     </div>
   );
 }

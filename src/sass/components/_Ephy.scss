@@ -1,4 +1,39 @@
 #ephy {
-  @extend .draw;
   cursor: pointer;
+}
+
+@keyframes blink {
+  0%,
+  33% {
+    opacity: 50%;
+  }
+  34%,
+  100% {
+    opacity: 100%;
+  }
+}
+
+.project__preview:has(#ephy) {
+  position: relative;
+  &:hover,
+  &:active {
+    &:after {
+      bottom: 0;
+      content: "⭮";
+      font-size: 0.9rem;
+      left: 6px;
+      pointer-events: none;
+      position: absolute;
+    }
+  }
+}
+
+.project__preview:has(#ephy.project__draw--drawing) {
+  &:hover,
+  &:active {
+    &:after {
+      animation: blink 300ms ease-in-out infinite;
+      content: "x10";
+    }
+  }
 }

@@ -3,7 +3,8 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/l/font?kit=X7nl4b88AP2nkbvZOCOI5Y0&skey=ca4a9ffe08a7dc79&v=v11) format("woff2");
+  src: url(https://fonts.gstatic.com/l/font?kit=X7nl4b88AP2nkbvZOCOI5Y0&skey=ca4a9ffe08a7dc79&v=v11)
+    format("woff2");
   unicode-range: U+41;
 }
 @font-face {
@@ -29,13 +30,13 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/l/font?kit=pe0sMIuULZxTolZ5YldyB-W7Qg&skey=cfae902f06d3ff0b&v=v7) format("woff2");
+  src: url(https://fonts.gstatic.com/l/font?kit=pe0sMIuULZxTolZ5YldyB-W7Qg&skey=cfae902f06d3ff0b&v=v7)
+    format("woff2");
   unicode-range: U+41;
 }
 
 #fontima {
   @extend .blueprint;
-  @extend .blueprint-outline;
   display: grid;
   gap: 0.5rem;
   padding: 0.5rem;
@@ -43,52 +44,50 @@
 
 .fontima__gallery {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
+  height: min-content;
   &,
   span span {
     font-size: 3rem;
+    // line-height: 0;
     &::before,
     &::after {
       border: none !important;
     }
   }
   > span {
-    @extend .blueprint-outline;
     align-items: center;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1;
     display: flex;
-    height: 4rem;
     justify-content: center;
     &:nth-child(1) span {
       font-family: "Fleur De Leah";
-      translate: -11px;
+      translate: -9px -4px;
     }
     &:nth-child(2) span {
       font-family: "Allison";
-      translate: -3px 2px;
+      translate: -4px -1px;
     }
     &:nth-child(3) span {
       font-family: "Hurricane";
-      translate: -2px 2px;
+      translate: -3px -2px;
     }
     &:nth-child(4) span {
       font-family: "Gideon Roman";
-      translate: 0 2px;
     }
     /* Fonts by Robert Leuschke. */
   }
 }
 
-.fontima__feedback {
-  font-size: 12.5px;
-  line-height: 1.25;
+/* .fontima__feedback {
+  font-size: 13px;
+  line-height: 1.2;
   text-align: center;
-  padding-block-start: 1rem;
   strong {
     &::before,
     &::after {
       border: none !important;
     }
   }
-}
+} */

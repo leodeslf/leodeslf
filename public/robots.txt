@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Disallow: "/assets/Leonardo de S. Leal F. - Frontend Developer - CV 2024.pdf"

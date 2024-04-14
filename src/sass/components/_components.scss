@@ -1,14 +1,13 @@
 @import "Projects";
 
 .intro {
-  grid-template-rows: 38.2lvh repeat(2, auto);
-  grid-column: 2 / 3;
-  container-name: intro;
   container-type: inline-size;
+  grid-column: 2 / 3;
+  grid-template-rows: 38.2lvh repeat(2, auto);
 }
 
-@container intro (max-width: 440px) {
-  .intro__about-me br {
+@container (max-width: 430px) {
+  .intro p br {
     display: none;
   }
 }

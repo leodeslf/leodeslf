@@ -32,10 +32,10 @@ export default function Tw() {
       </span>
     </div>
   ) : (
-    <p>
+    <p className="project__weather-placeholder">
       {weather.code === undefined ?
         'Cargando...' :
-        'Error al consultar OpenWeather.'}
+        'Algo salió mal con OpenWeather... 🤔'}
     </p>
   );
 }

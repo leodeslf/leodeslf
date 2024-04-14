@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { initPreview } from './index';
+import { initPreview, skinWidth } from './index';
 import Draw from '../Draw';
 
 export default function Tfp() {
@@ -20,6 +20,7 @@ export default function Tfp() {
         id="tfp-skin"
         ref={skinCanvas}
         style={{ display: 'none' }}
+        width={skinWidth}
       />
     </>
   );

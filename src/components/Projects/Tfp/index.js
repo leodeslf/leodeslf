@@ -2,7 +2,6 @@ import { simplex3D } from '@leodeslf/simplex-noise';
 import { Vec2 } from '@leodeslf/vec.js';
 import { side } from '../index';
 
-const skinData = new Uint8ClampedArray(256 * 4);
 const previousTarget = new Vec2();
 
 function drag(event) {
@@ -30,12 +29,14 @@ function drag(event) {
   noiseOffset.subtract(difference);
 }
 
-const pixelSize = 2;
+const skinWidth = 512;
+const pixelSize = 1;
 const noiseOffset = new Vec2();
 const scale = 1 / side;
 const u = x => (x + noiseOffset.x) * scale;
 const v = y => (y + noiseOffset.y) * scale;
-const pixelData = [0, 0, 0];
+const skinData = new Uint8ClampedArray(skinWidth * 4);
+const pixelData = [0, 0, 0, 0];
 const noiseImageData = new ImageData(side, side);
 let noiseContext;
 let raf = 0;
@@ -44,7 +45,7 @@ function generateNoiseImage() {
   for (let y = 0; y < side; y += pixelSize) {
     for (let x = 0; x < side; x += pixelSize) {
       let frequencyK = 1;
-      let amplitudeK = 1.25;
+      let amplitudeK = 1;
       let noise = 0;
 
       for (let k = 0; k < 2; k++, frequencyK *= 2, amplitudeK *= .5) {
@@ -55,7 +56,7 @@ function generateNoiseImage() {
         ) * amplitudeK;
       }
 
-      let skinIndex = Math.round(noise * 128 + 128) * 4;
+      let skinIndex = Math.round((noise * .5 + .5) * skinWidth) * 4;
       pixelData[0] = skinData[skinIndex + 0];
       pixelData[1] = skinData[skinIndex + 1];
       pixelData[2] = skinData[skinIndex + 2];
@@ -63,6 +64,8 @@ function generateNoiseImage() {
 
       for (let subY = 0; subY < pixelSize; subY++) {
         for (let subX = 0; subX < pixelSize; subX++) {
+          if (x + subX >= side) continue;
+
           let pixelIndex = ((y + subY) * side + x + subX) * 4;
           noiseImageData.data[pixelIndex + 0] = pixelData[0];
           noiseImageData.data[pixelIndex + 1] = pixelData[1];
@@ -78,6 +81,7 @@ function generateNoiseImage() {
   raf = requestAnimationFrame(generateNoiseImage);
 }
 
+// To prevent double animations and event assignment.
 let initialized = false;
 
 function initPreview(noiseCanvas, skinCanvas) {
@@ -86,13 +90,13 @@ function initPreview(noiseCanvas, skinCanvas) {
   initialized = true;
   noiseContext = noiseCanvas.getContext('2d');
   let skinContext = skinCanvas.getContext('2d', { willReadFrequently: true });
-  const skinImageData = new Image(256, 1);
+  const skinImageData = new Image(skinWidth, 1);
   skinImageData.src = '/assets/tfp-skin.png';
   skinImageData.onload = () => {
-    skinContext.clearRect(0, 0, 256, 1);
+    skinContext.clearRect(0, 0, skinWidth, 1);
     skinContext.drawImage(skinImageData, 0, 0);
-    skinData.set(skinContext.getImageData(0, 0, 256, 1).data);
-  }
+    skinData.set(skinContext.getImageData(0, 0, skinWidth, 1).data);
+  };
   noiseCanvas.addEventListener('mousedown', () => {
     window.addEventListener('mousemove', drag);
     window.addEventListener('mouseup', () => {
@@ -112,4 +116,7 @@ function initPreview(noiseCanvas, skinCanvas) {
   raf = requestAnimationFrame(generateNoiseImage);
 }
 
-export { initPreview };
+export {
+  initPreview,
+  skinWidth,
+};

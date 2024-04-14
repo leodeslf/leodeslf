@@ -2,14 +2,15 @@ import { Vec2 } from "@leodeslf/vec.js";
 import { color, margin, side } from "../index";
 
 const halfSide = side * .5;
-const p = 31;
-const q = 30;
+const p = 41;
+const q = 40;
 const k = p / q;
 const revolution = Math.PI * 2;
 const totalRevolutions = revolution * q;
-const orbitRotationSpeed = 0.006;
+const orbitRotationSpeed = 0.005;
 const outerRotationSpeed = orbitRotationSpeed * (k + 1);
 let stepsPerFrame = 21;
+let ephyCanvas;
 let ephyContext;
 let raf;
 let currentRevolution;
@@ -18,8 +19,9 @@ let outerPosition = new Vec2();
 
 function drawCycloid() {
   for (let i = 0; i < stepsPerFrame; i++) {
-    // const h = Vec2.add(orbitPosition, outerPosition).angleX / Math.PI * 180;
-    // ephyContext.strokeStyle = `hsl(${h}, 100%, 50%)`;
+    // ephyContext.strokeStyle = `hsl(${Vec2.add(
+    //   orbitPosition, outerPosition
+    // ).angleX / Math.PI * 180}, 100%, 50%)`;
 
     ephyContext.beginPath();
     ephyContext.moveTo(...Vec2.add(orbitPosition, outerPosition));
@@ -29,6 +31,7 @@ function drawCycloid() {
 
     if (currentRevolution >= totalRevolutions) {
       ephyContext.closePath();
+      ephyCanvas.classList.remove('project__draw--drawing');
       return cancelAnimationFrame(raf);
     }
 
@@ -51,6 +54,7 @@ function resetEphy() {
   orbitPosition = new Vec2(orbitRadius, 0);
   outerPosition = new Vec2(-outerRadius, 0);
   drawCycloid();
+  ephyCanvas.classList.add('project__draw--drawing');
 }
 
 function slowDownEphy() {
@@ -63,10 +67,11 @@ function speedUpEphy() {
 
 let initialized = false;
 
-function initPreview(ephyCanvas) {
+function initPreview(_ephyCanvas) {
   if (initialized) return;
 
   initialized = true;
+  ephyCanvas = _ephyCanvas;
   ephyContext = ephyCanvas.getContext('2d');
   ephyContext.translate(halfSide, halfSide);
   ephyContext.strokeStyle = color;

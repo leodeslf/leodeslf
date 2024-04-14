@@ -13,7 +13,6 @@ const module = new Module(
   new Vec2(margin2, side - margin2)
 );
 const target = module.target.clone();
-let context;
 
 function setTarget(event) {
   switch (event.type) {
@@ -32,6 +31,7 @@ function setTarget(event) {
   }
 }
 
+let skeletonContext;
 const speed = 16;
 const { PI } = Math;
 const PI2 = PI * 2;
@@ -43,94 +43,95 @@ function updateAndDrawModule() {
     .scale(speed);
 
   if (Vec2.distance(target, Vec2.add(module.target, stepToTarget)) > speed) {
-    // Get closer, not reaching the target.
+    // Get closer, not reaching the target (yet).
     module.target.add(stepToTarget);
   } else {
     // It's close enough, reach the target.
     module.target.copy(target);
   }
 
-  context.clearRect(0, 0, side, side);
+  skeletonContext.clearRect(0, 0, side, side);
 
   // Target.
-  context.fillStyle = 'red';
-  context.beginPath();
-  context.arc(...target, 7.5, 0, PI2);
-  context.fill();
-  context.closePath();
-  context.beginPath();
-  context.fillStyle = 'white';
-  context.arc(...target, 5, 0, PI2);
-  context.fill();
-  context.closePath();
-  context.beginPath();
-  context.fillStyle = 'red';
-  context.arc(...target, 2.5, 0, PI2);
-  context.fill();
-  context.closePath();
+  skeletonContext.fillStyle = color;
+  skeletonContext.beginPath();
+  skeletonContext.arc(...target, 7.5, 0, PI2);
+  skeletonContext.fill();
+  skeletonContext.closePath();
+  skeletonContext.beginPath();
+  skeletonContext.fillStyle = 'white';
+  skeletonContext.arc(...target, 5, 0, PI2);
+  skeletonContext.fill();
+  skeletonContext.closePath();
+  skeletonContext.beginPath();
+  skeletonContext.fillStyle = color;
+  skeletonContext.arc(...target, 2.5, 0, PI2);
+  skeletonContext.fill();
+  skeletonContext.closePath();
 
   // Anchor.
-  context.fillStyle = color;
-  context.beginPath();
-  context.fillRect(module.anchor.x - 4, module.anchor.y - 4, 8, 8);
-  context.fill();
-  context.closePath();
+  skeletonContext.fillStyle = color;
+  skeletonContext.beginPath();
+  skeletonContext.fillRect(module.anchor.x - 4, module.anchor.y - 4, 8, 8);
+  skeletonContext.fill();
+  skeletonContext.closePath();
 
   // Segments.
-  context.strokeStyle = color;
+  skeletonContext.strokeStyle = color;
   for (let i = 0; i < amountOfSegments - 1; i++) {
-    const { tail, head } = module.segments[i];
-    context.beginPath();
-    context.moveTo(...tail);
-    context.lineTo(...head);
-    context.closePath();
-    context.stroke();
-    context.beginPath();
-    context.arc(...tail, 2.5, 0, PI2);
-    context.closePath();
-    context.fill();
+    const { tail, tip } = module.segments[i];
+    skeletonContext.beginPath();
+    skeletonContext.moveTo(...tail);
+    skeletonContext.lineTo(...tip);
+    skeletonContext.closePath();
+    skeletonContext.stroke();
+    skeletonContext.beginPath();
+    skeletonContext.arc(...tail, 2.5, 0, PI2);
+    skeletonContext.closePath();
+    skeletonContext.fill();
   }
 
   // Target segment.
-  const lastSegmentHead = module.segments[amountOfSegments - 1].head;
+  const lastSegmentTip = module.segments[amountOfSegments - 1].tip;
   const arrow = Vec2.subtract(
-    lastSegmentHead,
-    module.segments[amountOfSegments - 2].head
+    lastSegmentTip,
+    module.segments[amountOfSegments - 2].tip
   );
   arrow.magnitude = moduleLength / amountOfSegments;
-  context.fillStyle = color;
-  context.save();
-  context.translate(...lastSegmentHead);
-  context.beginPath();
-  context.moveTo(0, 0);
-  context.translate(-arrow.x, -arrow.y);
-  context.lineTo(-arrow.y * .35, +arrow.x * .35);
-  context.lineTo(+arrow.y * .35, -arrow.x * .35);
-  context.translate(...arrow);
-  context.lineTo(0, 0);
-  context.closePath();
-  context.fill();
-  context.restore();
+  skeletonContext.fillStyle = color;
+  skeletonContext.save();
+  skeletonContext.translate(...lastSegmentTip);
+  skeletonContext.beginPath();
+  skeletonContext.moveTo(0, 0);
+  skeletonContext.translate(-arrow.x, -arrow.y);
+  skeletonContext.lineTo(-arrow.y * .35, +arrow.x * .35);
+  skeletonContext.lineTo(+arrow.y * .35, -arrow.x * .35);
+  skeletonContext.translate(...arrow);
+  skeletonContext.lineTo(0, 0);
+  skeletonContext.closePath();
+  skeletonContext.fill();
+  skeletonContext.restore();
 
   module.updatePositions();
   requestAnimationFrame(updateAndDrawModule);
 }
 
+// To prevent double animations and event assignment.
 let initialized = false;
 
 function initPreview(skeletonCanvas) {
   if (initialized) return;
 
   initialized = true;
-  context = skeletonCanvas.getContext('2d');
+  skeletonContext = skeletonCanvas.getContext('2d');
   skeletonCanvas.addEventListener('mousedown', event => {
     target.xy = [
       event.offsetX,
       event.offsetY
     ];
-    window.addEventListener('mousemove', setTarget);
+    skeletonCanvas.addEventListener('mousemove', setTarget);
     window.addEventListener('mouseup', () => {
-      window.removeEventListener('mousemove', setTarget);
+      skeletonCanvas.removeEventListener('mousemove', setTarget);
     });
   });
   skeletonCanvas.addEventListener('touchstart', event => {

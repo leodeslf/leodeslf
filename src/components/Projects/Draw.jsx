@@ -4,7 +4,7 @@ import { side } from "./index";
 const Draw = forwardRef(function Draw(props, canvas) {
   return (
     <canvas
-      className="draw"
+      className="project__draw"
       height={side}
       width={side}
       ref={canvas}

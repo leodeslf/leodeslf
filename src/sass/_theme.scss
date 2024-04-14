@@ -1,13 +1,13 @@
 :root {
-  color-scheme: light;
-  --bg: #{$white};
   --bg--off: #{$light-grey};
-  --color: #{$black};
-  --color--off: #{$grey};
+  --bg: #{$white};
   --color--anchor: #{$blue};
+  --color--off: #{$grey};
+  --color: #{$black};
+  color-scheme: light;
 }
 
-/* .darks {
+/* .dark {
   color-scheme: dark;
   --bg: #{$white};
   --bg--off: #{$light-grey};

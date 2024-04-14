@@ -18,6 +18,8 @@ export default function Ephy() {
       onTouchEnd={slowDownEphy}
       onTouchStart={speedUpEphy}
       ref={canvas}
+      title={`Click/Tap to redraw.
+Hover/Hold to speed up.`}
     />
   );
 }

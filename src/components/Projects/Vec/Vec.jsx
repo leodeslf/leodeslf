@@ -14,8 +14,12 @@ export default function Vec() {
 <-\\|/->
 V\n `}
       </pre>
-      <span className="vec__box-symbols">⮅☂</span>
-      <span className="vec__npm-sticker">npm</span>
+      <span className="vec__box-symbols">
+        ⮅☂
+      </span>
+      <span className="vec__npm-sticker">
+        npm
+      </span>
     </div>
   );
 }
